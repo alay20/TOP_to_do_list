@@ -1,4 +1,4 @@
-import { header } from './utils';
+import { header, menuBtn } from './utils';
 import listIcon from './icons/format-list-checks.svg';
 import menuIcon from './icons/menu.svg';
 
@@ -7,7 +7,6 @@ export const createHeader = () => {
     
     //Menu button
         //Create elements
-        const menuBtn = document.createElement('button');
         menuBtn.classList.add('menu-btn');
 
         const menuBtnIcon = new Image ();

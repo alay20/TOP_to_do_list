@@ -6,6 +6,7 @@ import sevenIcon from './icons/numeric-7-box-multiple-outline.svg';
 import starIcon from './icons/star.svg';
 
 export const createTaskFilter = () => {
+    
     const tasksFilter = document.createElement('ul');
     tasksFilter.setAttribute('id', 'task-filter');
     

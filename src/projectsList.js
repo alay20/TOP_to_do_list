@@ -2,7 +2,6 @@ import { mainNav } from "./utils";
 import addIcon from './icons/note-plus.svg';
 
 export const createProjects = () => {
-    
     const projectsHeader = document.createElement('h2');
     projectsHeader.textContent = 'Projects';
     projectsHeader.setAttribute('id', 'projects-header');
@@ -22,7 +21,5 @@ export const createProjects = () => {
     addProjects.classList.add('add-projects-txt');
 
     projectsList.append(addProjectsIcon, addProjects);
-
-
 
 };
