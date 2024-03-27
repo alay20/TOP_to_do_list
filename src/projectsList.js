@@ -1,16 +1,17 @@
-import { mainNav } from "./utils";
+import { mainNav, addProjectsLi, projectsList } from "./utils";
 import addIcon from './icons/note-plus.svg';
 
-export const createProjects = () => {
+
+export const createProjectsMenu = () => {
     const projectsHeader = document.createElement('h2');
     projectsHeader.textContent = 'Projects';
     projectsHeader.setAttribute('id', 'projects-header');
     
-
-    const projectsList = document.createElement('ul');
     projectsList.classList.add('projects-list');
     
     mainNav.append(projectsHeader, projectsList);
+
+    addProjectsLi.classList.add('add-projects-li');
 
     const addProjectsIcon = new Image();
     addProjectsIcon.src = addIcon;
@@ -20,6 +21,9 @@ export const createProjects = () => {
     addProjects.textContent = 'Add Projects';
     addProjects.classList.add('add-projects-txt');
 
-    projectsList.append(addProjectsIcon, addProjects);
+    addProjectsLi.append(addProjectsIcon, addProjects);
+    projectsList.appendChild(addProjectsLi);
+    
+    
 
 };

@@ -44,7 +44,7 @@ export const createTaskFilter = () => {
     //Next 7 days elements
     const liNxtSevenDays = document.createElement('li');
     liNxtSevenDays.classList.add('task-filter');
-    liNxtSevenDays.setAttribute('id', 'today-tasks');
+    liNxtSevenDays.setAttribute('id', 'next7days-tasks');
     
     const txtNxtSeven = document.createElement('div');
     txtNxtSeven.textContent = 'Next 7 Days';
@@ -60,7 +60,7 @@ export const createTaskFilter = () => {
     const liImportantTasks = document.createElement('li');
     
     liImportantTasks.classList.add('task-filter');
-    liImportantTasks.setAttribute('id', 'today-tasks');
+    liImportantTasks.setAttribute('id', 'important-tasks');
     
     const txtImportant = document.createElement('div');
     txtImportant.textContent = 'Important';

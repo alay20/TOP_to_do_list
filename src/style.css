@@ -46,6 +46,8 @@ header {
 }
 
 /* Left Panel */
+
+/* Task Filter */
 #left-container {
     border-right: 2px solid rgb(0, 0, 0);;
 }
@@ -86,6 +88,7 @@ ul li .filters-text {
     cursor: pointer;
 }
 
+/* Projects */
 .projects-list {
     margin-left: 25px;
 }
@@ -104,4 +107,38 @@ ul img,
 ul .add-projects-txt {
     display: inline-block;
     vertical-align: middle;
+}
+
+.add-project-icon {
+    grid-area: icon;
+}
+
+.enter-project-label {
+    grid-area: label;
+}
+
+.enter-project-input {
+    grid-area: input;
+}
+
+.add-project-btn {
+    grid-area: addbtn;
+}
+
+.cancel-add-btn {
+    grid-area: cancelbtn;
+}
+
+.add-new-project-cont {
+    margin-right: 25px;
+    display: grid;
+    grid-template-columns: 0.3fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "icon input input input"
+        ". addbtn cancelbtn .";
+}
+
+.projects-buttons {
+    width: 75px;
+    margin-top: 10px;
 }
