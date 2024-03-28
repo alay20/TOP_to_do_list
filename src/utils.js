@@ -21,8 +21,13 @@ export const addNewProjectCont = document.createElement('div');
     enterProjectNameInput.setAttribute('placeholder', 'Enter Project Name');
     enterProjectNameInput.classList.add('enter-project-input');
 
+
+    export const addProjectBtn = document.createElement('button');
     export const cancelAddProjectBtn = document.createElement('button');
 
 //Elements in new li element for new project
     export const newProjectLi = document.createElement('li');
     export const newProjectNameText = document.createElement('div');
+
+
+    
