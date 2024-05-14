@@ -1,17 +1,13 @@
 import addIcon from './icons/note-plus.svg';
 import folderCogIcon from './icons/folder-cog.svg';
-import { mainNav, addProjectsLi, projectsList, addNewProjectCont, enterProjectNameLabel, enterProjectNameInput, addProjectBtn, cancelAddProjectBtn } from "./utils";
+import { mainNav, addProjectsDiv, projectsList, addNewProjectCont, enterProjectNameLabel, enterProjectNameInput, addProjectBtn, cancelAddProjectBtn } from "./utils";
 
 export const createProjectsMenu = () => {
     const projectsHeader = document.createElement('h2');
     projectsHeader.textContent = 'Projects';
     projectsHeader.setAttribute('id', 'projects-header');
     
-    projectsList.classList.add('projects-list');
-    
-    mainNav.append(projectsHeader, projectsList);
-
-    addProjectsLi.classList.add('add-projects-li');
+    addProjectsDiv.classList.add('add-projects-div');
 
     const addProjectsIcon = new Image();
     addProjectsIcon.src = addIcon;
@@ -21,9 +17,10 @@ export const createProjectsMenu = () => {
     addProjects.textContent = 'Add Projects';
     addProjects.classList.add('add-projects-txt');
 
-    addProjectsLi.append(addProjectsIcon, addProjects);
-    projectsList.appendChild(addProjectsLi);
+    addProjectsDiv.append(addProjectsIcon, addProjects);
     
+    mainNav.append(projectsHeader, addProjectsDiv, projectsList);
+
     //Create elements for adding new project and project name
         const projectIcon = new Image();
         projectIcon.src = folderCogIcon;

@@ -1,5 +1,4 @@
-import { addProjectsLi, addNewProjectCont, enterProjectNameInput } from "./utils"
-import { addNewProject } from "./addProjects";
+import { addNewProjectCont, enterProjectNameInput } from "./utils"
 
 export const cancelAddProject = () => {
     addNewProjectCont.remove();

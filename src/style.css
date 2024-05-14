@@ -45,7 +45,7 @@ header {
     height: 100vh;
 }
 
-/* Left Panel */
+/* Left Container */
 
 /* Task Filter */
 #left-container {
@@ -89,8 +89,15 @@ ul li .filters-text {
 }
 
 /* Projects */
+.add-projects-div,
+.add-new-project-cont,
 .projects-list {
     margin-left: 25px;
+}
+
+.add-new-project-cont {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #projects-header {
@@ -99,12 +106,20 @@ ul li .filters-text {
     border-bottom: 2px solid rgb(0, 0, 0);
 }
 
-.add-projects-txt {
+.add-projects-txt,
+.list-project-txt,
+.projects-list {
     cursor: pointer;
 }
 
+.add-projects-div {
+    display: flex;
+    align-items: center;
+}
+
 ul img,
-ul .add-projects-txt {
+ul .add-projects-txt,
+ul .list-project-txt {
     display: inline-block;
     vertical-align: middle;
 }
@@ -141,4 +156,22 @@ ul .add-projects-txt {
 .projects-buttons {
     width: 75px;
     margin-top: 10px;
+}
+
+.list-project-txt {
+    width: 160px;
+}
+
+/* Right Container */
+#right-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 30px;
+}
+
+.project-title-cont {
+    border: 2.5px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    font-size: xxx-large;
+    padding: 15px 10px;
 }

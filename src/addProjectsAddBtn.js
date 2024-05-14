@@ -1,18 +1,12 @@
-import folderCogIcon from './icons/folder-cog.svg';
-import menuDots from './icons/dots-vertical.svg';
-import { addNewProjectCont, newProjectLi, newProjectNameText } from './utils';
+import { createProject } from "./addProjectFactoryFunction"
+import { enterProjectNameInput } from "./utils"
+import { allProjects } from "./data";
 
-export const addProjectsToList = () => {
-    //Remove contaienr for adding name of project
-    addNewProjectCont.remove();
+export const addProjectsToObj = () => {
+    const newProjectName = enterProjectNameInput.value;
     enterProjectNameInput.value = '';
 
-    const projectMenuIcon = new Image();
-    projectMenuIcon.src = menuDots;
-    projectMenuIcon.classList.add('icons');
-    projectMenuIcon.classList.add('project-menu');
+    const newProject = createProject(newProjectName);
 
-    // newProjectNameText.textContent = 
-
-
+    allProjects[newProjectName] = newProject;
 }
