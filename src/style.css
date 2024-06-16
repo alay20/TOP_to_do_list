@@ -90,12 +90,12 @@ ul li .filters-text {
 
 /* Projects */
 .add-projects-div,
-.add-new-project-cont,
+.add-new-project-form-cont,
 .projects-list {
     margin-left: 25px;
 }
 
-.add-new-project-cont {
+.add-new-project-form-cont {
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -144,7 +144,7 @@ ul .list-project-txt {
     grid-area: cancelbtn;
 }
 
-.add-new-project-cont {
+.add-new-project-form-cont {
     margin-right: 25px;
     display: grid;
     grid-template-columns: 0.3fr 1fr 1fr 1fr;
@@ -162,6 +162,12 @@ ul .list-project-txt {
     width: 160px;
 }
 
+.error-message {
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    margin: 15px 15px 15px 25px;
+}
+
 /* Right Container */
 #right-container {
     display: flex;
@@ -174,4 +180,70 @@ ul .list-project-txt {
     border-radius: 4px;
     font-size: xxx-large;
     padding: 15px 10px;
+}
+
+.open-add-task-btn-cont {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-task-btn {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+}
+
+.enter-task-input {
+    grid-area: task;
+    margin-bottom: 15px;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.enter-notes-input {
+    grid-area: notes;
+    margin-bottom: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.enter-date-input {
+    grid-area: date;
+    margin-bottom: 15px;
+}
+
+.form-add-task-btn {
+    grid-area: add; 
+}
+
+.form-cancel-add-task-btn {
+    grid-area: cancel;
+}
+
+.form-task-btns {
+    width: 75px;
+    margin-top: 10px;
+    justify-self: center;
+}
+
+.add-task-form-cont {
+    border: 2.5px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    padding: 15px 10px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+    "task task task task"
+    "notes notes notes notes"
+    "date date date date"
+    ". add cancel .";
 }

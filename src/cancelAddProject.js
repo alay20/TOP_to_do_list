@@ -1,6 +1,7 @@
-import { addNewProjectCont, enterProjectNameInput } from "./utils"
+import { addNewProjectCont, enterProjectTitleInput, projectNameErrorMsg } from "./utils"
 
 export const cancelAddProject = () => {
     addNewProjectCont.remove();
-    enterProjectNameInput.value = '';
+    projectNameErrorMsg.remove();
+    enterProjectTitleInput.value = '';
 }

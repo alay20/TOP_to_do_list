@@ -1,10 +1,10 @@
 import { createProject } from "./addProjectFactoryFunction"
-import { enterProjectNameInput } from "./utils"
+import { enterProjectTitleInput } from "./utils"
 import { allProjects } from "./data";
 
 export const addProjectsToObj = () => {
-    const newProjectName = enterProjectNameInput.value;
-    enterProjectNameInput.value = '';
+    const newProjectName = enterProjectTitleInput.value;
+    enterProjectTitleInput.value = '';
 
     const newProject = createProject(newProjectName);
 
