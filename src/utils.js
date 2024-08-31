@@ -47,6 +47,12 @@ addNewProjectCont.classList.add('add-new-project-form-cont');
     projectNameErrorMsg.textContent = 'Sorry, the project name you entered is already in use. Please choose a different name to ensure it is unique.'
     projectNameErrorMsg.classList.add('error-message');
 
+    //Variable to store last clicked project title
+    export let lastClickedProject = null;
+    export const setLastClickedProject = (projectName) => {
+        lastClickedProject = projectName; 
+    }
+
     
 //Elements in main right container
     export const projectTitleCont = document.createElement('div');
@@ -116,5 +122,14 @@ addNewProjectCont.classList.add('add-new-project-form-cont');
         
         //Append elements to container to add task
         addTaskInputCont.append(enterTaskNameLabel, enterTaskNameInput, enterTaskNotesLabel, enterTaskNotesInput, enterTaskDateLabel, enterTaskDateInput, addTaskBtn, cancelAddTaskBtn);
+
+    //Elements for list of tasks added
+
+        //Task list
+        export const taskList = document.createElement('ul');
+        taskList.classList.add('task-list');
+
+        
+
 
         

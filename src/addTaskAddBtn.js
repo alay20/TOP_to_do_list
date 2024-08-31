@@ -1,20 +1,32 @@
 import { createTask } from "./addTaskFactoryFunction";
-import { allTasks } from "./data";
-import { enterTaskDateInput, enterTaskNameInput, enterTaskNotesInput } from "./utils";
+import { allTasks, allTasksCounters } from "./data";
+import { enterTaskDateInput, enterTaskNameInput, enterTaskNotesInput, lastClickedProject } from "./utils";
 
+//Add the new task into the allTasks obejct
 export const addTaskToObj = () => {
-    const newTaskName = enterTaskNameInput.value;
-    enterTaskNameInput.value = "";
+    const newTaskName = enterTaskNameInput.value.trim().toLowerCase();
+    let uniqueTaskName;
 
     const newTaskNotes = enterTaskNotesInput.value;
-    enterTaskNotesInput.value = "";
+
 
     const newTaskDate = enterTaskDateInput.value;
-    enterTaskDateInput.value = "";
 
-    const newTask = createTask(newTaskName, newTaskNotes, newTaskDate);
 
-    //can't use task name as key name in allTasks object in case more than 1 task have same task name
-    allTasks[newTaskName] = newTask;
+    //check if task name already exists
+    if (allTasks.hasOwnProperty(newTaskName)) {
+        if (allTasksCounters.hasOwnProperty(newTaskName)) {
+            allTasksCounters[newTaskName]++;
+        } else {
+            allTasksCounters[newTaskName] = 1;
+        }
+        uniqueTaskName = `${newTaskName}_${allTasksCounters[newTaskName]}`;
+    } else {
+        uniqueTaskName = newTaskName;
+    }
+    
+    const newTask = createTask(uniqueTaskName, newTaskNotes, newTaskDate, lastClickedProject);
+
+    allTasks[uniqueTaskName] = newTask;
 
 };
