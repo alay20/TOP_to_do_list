@@ -112,7 +112,7 @@ addNewProjectCont.classList.add('add-new-project-form-cont');
         export const addTaskBtn = document.createElement('button');
         addTaskBtn.textContent = 'Add';
         addTaskBtn.classList.add('form-add-task-btn');
-        addTaskBtn.classList.add('form-task-btns')
+        addTaskBtn.classList.add('form-task-btns');
         
         //Task Cancel Button
         export const cancelAddTaskBtn = document.createElement('button');
@@ -128,6 +128,7 @@ addNewProjectCont.classList.add('add-new-project-form-cont');
         //Task list
         export const taskList = document.createElement('ul');
         taskList.classList.add('task-list');
+
 
         
 

@@ -9,9 +9,7 @@ export const addTaskToObj = () => {
 
     const newTaskNotes = enterTaskNotesInput.value;
 
-
     const newTaskDate = enterTaskDateInput.value;
-
 
     //check if task name already exists
     if (allTasks.hasOwnProperty(newTaskName)) {
@@ -25,8 +23,9 @@ export const addTaskToObj = () => {
         uniqueTaskName = newTaskName;
     }
     
-    const newTask = createTask(uniqueTaskName, newTaskNotes, newTaskDate, lastClickedProject);
+    const newTask = createTask(uniqueTaskName, newTaskNotes, undefined, newTaskDate, lastClickedProject);
 
-    allTasks[uniqueTaskName] = newTask;
+    allTasks[enterTaskNameInput.value] = newTask;
+    // allTasks[uniqueTaskName] = newTask;
 
 };

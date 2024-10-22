@@ -8,7 +8,7 @@ const tasksFilteredClickedProjectArray = Object.entries(allTasks)
 
 const tasksFilteredClickedProjectObj = Object.fromEntries(tasksFilteredClickedProjectArray);
 
-const tasksFilteredArray = Object.keys(tasksFilteredClickedProjectObj);
+// const tasksFilteredArray = Object.keys(tasksFilteredClickedProjectObj);
 
 console.log('List of tasks from last clicked project:', tasksFilteredClickedProjectObj)
 

@@ -179,7 +179,8 @@ ul .list-project-txt {
     border: 2.5px solid rgb(0, 0, 0);
     border-radius: 4px;
     font-size: xxx-large;
-    padding: 15px 10px;
+    padding: 25px 20px;
+    margin-bottom: 40px;
 }
 
 .open-add-task-btn-cont {
@@ -249,8 +250,72 @@ ul .list-project-txt {
 }
 
 .task-list {
-    border: 2.5px solid rgb(0, 0, 0);
-    border-radius: 4px;
-    padding: 15px 10px;
-    margin-top: 20px;
+
+}
+
+/* li for each new task */
+.new-task-li {
+    display: grid;
+    grid-template-columns: 0.25fr 4fr 0.5fr 0.25fr 0.25fr;
+    grid-template-areas:
+        "checkbox title due star dots"
+        ". notes due star dots";
+    border-bottom: 1px solid rgb(0, 0, 0);
+    pointer-events: all;
+}
+
+/* Individual elements in each li of task */
+.task-checkbox {
+    grid-area: checkbox;
+    place-self: center;
+    font-size: small;
+    margin-top: 10px;
+}
+
+.task-text,
+.task-text-completed {
+    grid-area: title;
+    font-size: large;
+    margin: 10px 0px 7px;
+}
+
+.task-text-completed {
+    text-decoration: line-through;
+    color: rgb(168, 168, 168);
+}
+
+.task-notes,
+.task-notes-completed {
+    grid-area: notes;
+    place-self: start;
+    margin: 0px 0px 7px;
+    color: rgb(65, 65, 65);
+}
+
+.task-notes-completed {
+    text-decoration: line-through;
+    color: rgb(168, 168, 168);
+}
+
+.task-due-date {
+    grid-area: due;
+    place-self: center;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 6px;
+    padding: 5px;
+}
+
+.task-star,
+.task-star-important {
+    grid-area: star;
+    place-self: center right;
+    width: 25px;
+    height: auto;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.task-menu {
+    grid-area: dots;
+    place-self: center left;
 }
