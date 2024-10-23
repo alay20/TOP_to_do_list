@@ -10,8 +10,6 @@ export const createClickedProjectTitle = (e) => {
         var projectTitle = liWithDataset.dataset.projectTitle;
     }
     
-    // console.log('Project Title:', allProjects[projectTitle].getProjectName());
-    
     projectTitleCont.textContent = allProjects[projectTitle].getProjectName();
     setLastClickedProject(allProjects[projectTitle].getProjectName());
 

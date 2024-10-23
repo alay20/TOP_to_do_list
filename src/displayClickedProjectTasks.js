@@ -5,6 +5,7 @@ import star from './icons/star.svg';
 import menu from './icons/dots-vertical.svg';
 import { filterTasksLastClickedProject } from "./filterTasksLastClickedProject";
 import { openAddTaskBtnCont, taskList } from "./utils";
+import { format, parseISO } from 'date-fns';
 
 export const createFilteredTasks = () => {
 
@@ -14,7 +15,6 @@ export const createFilteredTasks = () => {
         const tasksFilteredClickedProjectObj = filterTasksLastClickedProject();
 
         Object.entries(tasksFilteredClickedProjectObj).forEach(([key, method]) => {
-        
         
                 const newTaskLi = document.createElement('li');
                 newTaskLi.classList.add('new-task-li');
@@ -38,8 +38,8 @@ export const createFilteredTasks = () => {
                         taskText.classList.add('task-text');
                         taskNotes.classList.add('task-notes');
                 }
+                
                 taskText.textContent = key;
-                // taskText.textContent = method.getTaskTitle().split('_')[0];  
                 console.log("Task Title:", method.getTaskTitle().split('_')[0]);
 
                 taskNotes.textContent = method.getTaskNotes();
@@ -48,11 +48,20 @@ export const createFilteredTasks = () => {
                 taskDueDate.classList.add('task-due-date');
 
                 //Determine text output for due date element
-                if (method.getTaskDueDate() === '') {
+                if (method.getTaskDueDate() === "") {
                         taskDueDate.textContent = 'No Due Date'
-                } else {
-                        taskDueDate.textContent = getTaskDueDate();
-                }
+                    } else {
+                        const dateToFormat = parseISO(method.getTaskDueDate());
+                        const today = new Date();
+                        today.setHours(0, 0, 0, 0);
+                        dateToFormat.setHours(0, 0, 0, 0);
+                            if (dateToFormat.getTime() === today.getTime()) {
+                                taskDueDate.textContent = 'Today';
+                            } else {
+                                taskDueDate.textContent = format(dateToFormat, 'EEE, MMM d, yyyy');
+                            }
+                    };
+            
 
                 //Determine if important is true or false and display correct star 
                 let starImportant = new Image();
@@ -83,17 +92,3 @@ export const createFilteredTasks = () => {
         }; 
 
 };
-
-
-      //Determine if important is true or false and display correct star using inline SVG
-                // if (method.getImportant()) {
-                //         //Insert star with inline svg next to the original clicked star
-                //         taskDueDate.insertAdjacentHTML('afterend', filledStar);
-                //         const importantStar = taskDueDate.nextElementSibling;
-                //         importantStar.classList.add('task-star-important');
-                // } else {                        
-                //         //Insert star with inline svg next to the original clicked star
-                //         taskDueDate.insertAdjacentHTML('afterend', star);
-                //         const blankStar = taskDueDate.nextElementSibling;
-                //         blankStar.classList.add('task-star');
-                // }

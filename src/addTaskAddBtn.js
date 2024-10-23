@@ -26,6 +26,4 @@ export const addTaskToObj = () => {
     const newTask = createTask(uniqueTaskName, newTaskNotes, undefined, newTaskDate, lastClickedProject);
 
     allTasks[enterTaskNameInput.value] = newTask;
-    // allTasks[uniqueTaskName] = newTask;
-
 };

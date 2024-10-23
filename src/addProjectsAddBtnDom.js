@@ -38,8 +38,6 @@ export const addProjectsToListDom = () => {
         
         //append icon and new project name to project list
         projectsList.appendChild(newProjectLi);
-
-        //create a ul for the task list in the right container displaying project
         
     }
 };

@@ -45,21 +45,3 @@ export const toggleImportant = (e) => {
 
     }
 }
-
-//Insert star with inline svg next to the original clicked star
-            // clickedStar.insertAdjacentHTML('afterend', star);
-            // const blankStar = clickedStar.nextElementSibling;
-            // blankStar.classList.add('task-star');
-
-            // clickedStar.remove();
-
-            // console.log('Task Important:', allTasks[taskClicked].getImportant())
-
-
-//Insert star with inline svg next to the original clicked star
-// clickedStar.insertAdjacentHTML('afterend', filledStar);
-
-// const importantStar = clickedStar.nextElementSibling;
-// importantStar.classList.add('task-star-important');
-
-// clickedStar.remove();

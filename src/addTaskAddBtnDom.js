@@ -2,6 +2,7 @@ import { addTaskInputCont, enterTaskNameInput, enterTaskNotesInput, enterTaskDat
 import checkBox from './icons/checkbox-blank-outline.svg';
 import star from './icons/star.svg';
 import menu from './icons/dots-vertical.svg';
+import { format, parseISO } from 'date-fns';
 
 export const addTaskToList = () => {
     
@@ -29,14 +30,21 @@ export const addTaskToList = () => {
     const taskDueDate = document.createElement('p');
     taskDueDate.classList.add('task-due-date');
 
-        //Determine text output for due date element
-        if (enterTaskDateInput.value === '') {
+    //Determine text output for due date element
+        if (enterTaskDateInput.value === "") {
             taskDueDate.textContent = 'No Due Date'
         } else {
-            taskDueDate.textContent = enterTaskDateInput.value;
-        }
+            const dateToFormat = parseISO(enterTaskDateInput.value);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            dateToFormat.setHours(0, 0, 0, 0);
+                if (dateToFormat.getTime() === today.getTime()) {
+                    taskDueDate.textContent = 'Today';
+                } else {
+                    taskDueDate.textContent = format(dateToFormat, 'EEE, MMM d, yyyy');
+                };
+        };
 
-    
     const starOutline = new Image();
     starOutline.src = star;
     starOutline.classList.add('icons', 'task-star');
@@ -59,19 +67,3 @@ export const addTaskToList = () => {
     enterTaskDateInput.value = "";
 
 };
-
-//Insert star with inline svg next to the original clicked star
-// clickedStar.insertAdjacentHTML('afterend', filledStar);
-
-// const importantStar = clickedStar.nextElementSibling;
-// importantStar.classList.add('task-star-important');
-
-// clickedStar.remove();
-
-
-
-
-  //add star as inline svg
-    // taskDueDate.insertAdjacentHTML('afterend', importantStar);    
-    // const star = taskDueDate.nextElementSibling;
-    // star.classList.add('icon', 'task-star');
