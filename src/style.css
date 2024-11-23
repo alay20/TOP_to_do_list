@@ -8,6 +8,7 @@ body {
 /* Header */
 header {
     width: 100%;
+    min-width: 390px;
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid rgb(0, 0, 0);
@@ -41,17 +42,19 @@ header {
 /* Main content container */
 #main-container {
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 0.5fr 4fr;
     height: 100vh;
 }
 
-/* Left Container */
 
-/* Task Filter */
+
+/* Left Container */
 #left-container {
-    border-right: 2px solid rgb(0, 0, 0);;
+    border-right: 2px solid rgb(0, 0, 0);
+    width: 390px;
 }
 
+/* Task Filter */
 nav {
     margin-top: 25px;
 }
@@ -91,11 +94,13 @@ ul li .filters-text {
 /* Projects */
 .add-projects-div,
 .add-new-project-form-cont,
+.edit-project-form-cont,
 .projects-list {
     margin-left: 25px;
 }
 
-.add-new-project-form-cont {
+.add-new-project-form-cont,
+.edit-project-form-cont {
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -124,6 +129,7 @@ ul .list-project-txt {
     vertical-align: middle;
 }
 
+/* Add Projects form */
 .add-project-icon {
     grid-area: icon;
 }
@@ -138,10 +144,12 @@ ul .list-project-txt {
 
 .add-project-btn {
     grid-area: addbtn;
+    cursor: pointer;
 }
 
 .cancel-add-btn {
     grid-area: cancelbtn;
+    cursor: pointer;
 }
 
 .add-new-project-form-cont {
@@ -153,13 +161,46 @@ ul .list-project-txt {
         ". addbtn cancelbtn .";
 }
 
+/* Edit project name */
+.add-project-icon-edit {
+    grid-area: iconedit;
+}
+
+.enter-project-label-edit {
+    grid-area: labeledit;
+}
+
+.enter-project-input-edit {
+    grid-area: inputedit;
+}
+
+.addbtn-edit-mode {
+    grid-area: addbtnedit;
+    cursor: pointer;
+}
+
+.cancelbtn-edit-mode {
+    grid-area: cancelbtnedit;
+    cursor: pointer;
+}
+
+.edit-project-form-cont {
+    margin-right: 25px;
+    display: grid;
+    grid-template-columns: 0.3fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "iconedit inputedit inputedit inputedit"
+        ". addbtnedit cancelbtnedit .";
+}
+
+
 .projects-buttons {
     width: 75px;
     margin-top: 10px;
 }
 
 .list-project-txt {
-    width: 160px;
+    width: 300px;
 }
 
 .error-message {
@@ -167,6 +208,30 @@ ul .list-project-txt {
     font-weight: bold;
     margin: 15px 15px 15px 25px;
 }
+
+.new-project-li {
+    position: relative; 
+}
+
+/* Projects list popup menu */
+.project-popup-menu {
+    position: absolute;
+    top: -62px;
+    right: -35px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-top: 8px;
+    border-radius: 10px;
+    max-width: 60px;
+}
+
+.popup-menu-edit,
+.popup-menu-delete {
+    margin: 0px 8px 8px;
+    pointer-events: all;
+}
+
 
 /* Right Container */
 #right-container {

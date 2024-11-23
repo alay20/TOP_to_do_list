@@ -15,19 +15,16 @@ export const addProjectsToListDom = () => {
         projectNameErrorMsg.remove();
         
         const newProjectLi = document.createElement('li');
+        newProjectLi.classList.add('new-project-li');
 
         const projectIcon = new Image();
         projectIcon.src = folderCogIcon;
-        projectIcon.classList.add('icons');
-        projectIcon.classList.add('add-project-icon');
+        projectIcon.classList.add('icons', 'add-project-icon');
 
-        
         const projectMenuIcon = new Image();
         projectMenuIcon.src = menuDots;
-        projectMenuIcon.classList.add('icons');
-        projectMenuIcon.classList.add('project-menu');
+        projectMenuIcon.classList.add('icons', 'project-menu');
 
-        
         const newProjectNameText = document.createElement('div');
         newProjectNameText.classList.add('list-project-txt');
         newProjectNameText.textContent = enterProjectTitleInput.value;

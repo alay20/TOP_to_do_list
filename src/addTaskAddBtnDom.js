@@ -1,4 +1,4 @@
-import { addTaskInputCont, enterTaskNameInput, enterTaskNotesInput, enterTaskDateInput, taskList, openAddTaskBtnCont } from "./utils";
+import { addTaskInputCont, enterTaskNameInput, enterTaskNotesInput, enterTaskDateInput, taskList, openAddTaskBtnCont, rightContainer } from "./utils";
 import checkBox from './icons/checkbox-blank-outline.svg';
 import star from './icons/star.svg';
 import menu from './icons/dots-vertical.svg';
@@ -7,6 +7,7 @@ import { format, parseISO } from 'date-fns';
 export const addTaskToList = () => {
     
     addTaskInputCont.remove(); 
+    rightContainer.appendChild(openAddTaskBtnCont);
 
     const newTaskLi = document.createElement('li');
     newTaskLi.classList.add('new-task-li');

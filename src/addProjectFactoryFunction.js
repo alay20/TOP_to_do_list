@@ -1,6 +1,10 @@
 export const createProject = (projectName) => {
 
-    const getProjectName = () => projectName; 
+    let project = projectName;  
 
-    return { getProjectName };
+    const getProjectName = () => project; 
+
+    const setProjectName = (newProjectName) => project = newProjectName;
+
+    return { getProjectName, setProjectName };
 }

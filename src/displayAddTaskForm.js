@@ -3,4 +3,5 @@ import { rightContainer, addTaskInputCont, openAddTaskBtnCont, enterTaskNameInpu
 export const displayAddTaskForm = () => {
     rightContainer.insertBefore(addTaskInputCont, openAddTaskBtnCont);
     enterTaskNameInput.focus();
+    openAddTaskBtnCont.remove();
 }

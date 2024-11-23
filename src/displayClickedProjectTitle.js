@@ -1,7 +1,13 @@
-import { projectTitleCont, addTaskInputCont, enterTaskNameInput, enterTaskNotesInput, enterTaskDateInput, setLastClickedProject, lastClickedProject, openAddTaskBtnCont, taskList} from "./utils";
-import { allProjects, allTasks } from "./data";
+import { projectTitleCont, addTaskInputCont, enterTaskNameInput, enterTaskNotesInput, enterTaskDateInput, setLastClickedProject, lastClickedProject} from "./utils";
+import { allProjects } from "./data";
 
 export const createClickedProjectTitle = (e) => {
+  if ((e.target.classList.contains('icons') && e.target.classList.contains('project-menu')) 
+        || e.target.classList.contains('popup-menu-ul') 
+        || e.target.classList.contains('popup-menu-edit') 
+        || e.target.classList.contains('popup-menu-delete')) {
+    e.stopPropagation();
+  } else {
     console.log('Event Target:', e.target);
     
     const liWithDataset = e.target.closest('li');
@@ -11,6 +17,7 @@ export const createClickedProjectTitle = (e) => {
     }
     
     projectTitleCont.textContent = allProjects[projectTitle].getProjectName();
+    projectTitleCont.dataset.projectTitle = allProjects[projectTitle].getProjectName();
     setLastClickedProject(allProjects[projectTitle].getProjectName());
 
     console.log('Last clicked project:', lastClickedProject);
@@ -22,4 +29,5 @@ export const createClickedProjectTitle = (e) => {
     enterTaskNameInput.value = "";
     enterTaskNotesInput.value = "";
     enterTaskDateInput.value = "";
+  }
 };

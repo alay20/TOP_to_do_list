@@ -15,12 +15,11 @@ projectsList.classList.add('projects-list');
 
 export const addProjectsDiv = document.createElement('div');
 
-export const addNewProjectCont = document.createElement('div');
-addNewProjectCont.classList.add('add-new-project-form-cont');
-
-
 
 //Elements in container for adding new project 
+    export const addNewProjectCont = document.createElement('div');
+    addNewProjectCont.classList.add('add-new-project-form-cont');    
+
     export const enterProjectTitleLabel = document.createElement('label');
     enterProjectTitleLabel.setAttribute('for', 'projectTitle');
     enterProjectTitleLabel.classList.add('enter-project-label');
@@ -29,31 +28,54 @@ addNewProjectCont.classList.add('add-new-project-form-cont');
     enterProjectTitleInput.setAttribute('type', 'text');
     enterProjectTitleInput.setAttribute('id', 'projectTitle');
     enterProjectTitleInput.setAttribute('placeholder', 'Enter Project Title');
+    enterProjectTitleInput.setAttribute('maxLength', '45');
     enterProjectTitleInput.classList.add('enter-project-input');
-
 
     export const addProjectBtn = document.createElement('button');
     addProjectBtn.textContent = 'Add';
-    addProjectBtn.classList.add('projects-buttons')
-    addProjectBtn.classList.add('add-project-btn');
+    addProjectBtn.classList.add('projects-buttons', 'add-project-btn');
 
     export const cancelAddProjectBtn = document.createElement('button');
     cancelAddProjectBtn.textContent = 'Cancel';
-    cancelAddProjectBtn.classList.add('projects-buttons');
-    cancelAddProjectBtn.classList.add('cancel-add-btn');
+    cancelAddProjectBtn.classList.add('projects-buttons', 'cancel-add-btn');
 
+    
     //Error message for same project name
     export const projectNameErrorMsg = document.createElement('div');
     projectNameErrorMsg.textContent = 'Sorry, the project name you entered is already in use. Please choose a different name to ensure it is unique.'
     projectNameErrorMsg.classList.add('error-message');
 
-    //Variable to store last clicked project title
-    export let lastClickedProject = null;
-    export const setLastClickedProject = (projectName) => {
-        lastClickedProject = projectName; 
-    }
 
-    
+//Elements in container for editing project name
+    export const editProjectCont = document.createElement('div');
+    editProjectCont.classList.add('edit-project-form-cont');        
+
+    export const enterProjectTitleLabelEdit = document.createElement('label');
+    enterProjectTitleLabelEdit.setAttribute('for', 'projectTitleEdit');
+    enterProjectTitleLabelEdit.classList.add('enter-project-label-edit');
+
+    export const enterProjectTitleInputEdit = document.createElement('input');
+    enterProjectTitleInputEdit.setAttribute('type', 'text');
+    enterProjectTitleInputEdit.setAttribute('id', 'projectTitleEdit');
+    enterProjectTitleInputEdit.setAttribute('maxLength', '45');
+    enterProjectTitleInputEdit.classList.add('enter-project-input-edit');
+
+
+    export const addProjectBtnEdit = document.createElement('button');
+    addProjectBtnEdit.textContent = 'Add';
+    addProjectBtnEdit.classList.add('projects-buttons', 'addbtn-edit-mode' )
+
+    export const cancelAddProjectBtnEdit = document.createElement('button');
+    cancelAddProjectBtnEdit.textContent = 'Cancel';
+    cancelAddProjectBtnEdit.classList.add('projects-buttons', 'cancelbtn-edit-mode');
+
+
+//Variable to store last clicked project title
+export let lastClickedProject = null;
+export const setLastClickedProject = (projectName) => {
+    lastClickedProject = projectName; 
+}
+
 //Elements in main right container
     export const projectTitleCont = document.createElement('div');
     projectTitleCont.classList.add('project-title-cont')

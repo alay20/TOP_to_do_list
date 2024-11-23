@@ -1,6 +1,8 @@
 import './style.css';
 
-import { menuBtn, addProjectsDiv, projectsList, enterProjectTitleInput, addProjectBtn, cancelAddProjectBtn, openAddTaskBtnCont, cancelAddTaskBtn, addTaskBtn, addTaskInputCont, taskList} from './utils';
+import { menuBtn, addProjectsDiv, projectsList, enterProjectTitleInput, addProjectBtn, cancelAddProjectBtn, openAddTaskBtnCont, 
+        cancelAddTaskBtn, addTaskBtn, addTaskInputCont, taskList, addProjectBtnEdit, cancelAddProjectBtnEdit, 
+        enterProjectTitleInputEdit} from './utils';
 
 import { createHeader } from './header';
 import { createTaskFilter } from './taskFilter';
@@ -21,7 +23,11 @@ import { addTaskToList } from './addTaskAddBtnDom';
 import { createFilteredTasks } from './displayClickedProjectTasks';
 import { toggleCheckBox } from './toggleCheckbox';
 import { toggleImportant } from './toggleImportant';
-
+import { displayProjPopUpMenu } from './projectsListPopUpMenu';
+import { removeProjPopupMenu } from './removeProjPopup';
+import { editProjectName } from './projectsListEditName';
+import { editProjectNameAddBtn } from './editProjectNameAddBtn';
+import { editProjectNameCancelBtn } from './editProjectNameCancelBtn';
 
 createHeader();
 createTaskFilter();
@@ -30,19 +36,30 @@ createDefaultAllTasksTitle();
 
 menuBtn.addEventListener('click', showMenu);
 
-addProjectsDiv.addEventListener('click', openAddNewProject);
 
+//Add new project
+addProjectsDiv.addEventListener('click', openAddNewProject);
 addProjectBtn.addEventListener('click', addProjectsToListDom);
 addProjectBtn.addEventListener('click', addProjectsToObj);
-
 enterProjectTitleInput.addEventListener('keypress', (e) => keyPressEnterEventListener(e, addProjectBtn));
-
 cancelAddProjectBtn.addEventListener('click', cancelAddProject);
 
+//Clicking a project
 projectsList.addEventListener('click', createClickedProjectTitle);
 projectsList.addEventListener('click', displayAddTaskElements);
 projectsList.addEventListener('click', createFilteredTasks);
 
+//Clicking menu icon in project
+projectsList.addEventListener('click', displayProjPopUpMenu);
+projectsList.addEventListener('click', editProjectName);
+
+//Clicking buttons for editing project name
+addProjectBtnEdit.addEventListener('click', editProjectNameAddBtn);
+cancelAddProjectBtnEdit.addEventListener('click', editProjectNameCancelBtn);
+enterProjectTitleInputEdit.addEventListener('keypress', (e) => keyPressEnterEventListener(e, addProjectBtnEdit));
+
+//Clicking anywhere in window to remove a popupmenu in project list
+document.addEventListener('click', removeProjPopupMenu);
 
 //Task Form
 openAddTaskBtnCont.addEventListener('click', displayAddTaskForm);

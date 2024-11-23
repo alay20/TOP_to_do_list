@@ -7,9 +7,14 @@ import { filterTasksLastClickedProject } from "./filterTasksLastClickedProject";
 import { openAddTaskBtnCont, taskList } from "./utils";
 import { format, parseISO } from 'date-fns';
 
-export const createFilteredTasks = () => {
-
-        taskList.replaceChildren();
+export const createFilteredTasks = (e) => {
+        if (e.target.classList.contains('icons') && e.target.classList.contains('project-menu')
+            || e.target.classList.contains('popup-menu-ul') 
+            || e.target.classList.contains('popup-menu-edit') 
+            || e.target.classList.contains('popup-menu-delete')) {
+        e.stopPropagation();
+        } else {
+                taskList.replaceChildren();
         taskList.remove();
 
         const tasksFilteredClickedProjectObj = filterTasksLastClickedProject();
@@ -85,10 +90,9 @@ export const createFilteredTasks = () => {
                 taskList.appendChild(newTaskLi);
 
         });
-        
 
         if (Object.entries(tasksFilteredClickedProjectObj).length > 0) {
                 openAddTaskBtnCont.insertAdjacentElement('beforebegin', taskList)
         }; 
-
+        ;}      
 };
