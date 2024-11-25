@@ -28,6 +28,7 @@ import { removeProjPopupMenu } from './removeProjPopup';
 import { editProjectName } from './projectsListEditName';
 import { editProjectNameAddBtn } from './editProjectNameAddBtn';
 import { editProjectNameCancelBtn } from './editProjectNameCancelBtn';
+import { deleteProject } from './projectsListDelete';
 
 createHeader();
 createTaskFilter();
@@ -35,7 +36,6 @@ createProjectsMenu();
 createDefaultAllTasksTitle();
 
 menuBtn.addEventListener('click', showMenu);
-
 
 //Add new project
 addProjectsDiv.addEventListener('click', openAddNewProject);
@@ -52,6 +52,7 @@ projectsList.addEventListener('click', createFilteredTasks);
 //Clicking menu icon in project
 projectsList.addEventListener('click', displayProjPopUpMenu);
 projectsList.addEventListener('click', editProjectName);
+projectsList.addEventListener('click', deleteProject);
 
 //Clicking buttons for editing project name
 addProjectBtnEdit.addEventListener('click', editProjectNameAddBtn);

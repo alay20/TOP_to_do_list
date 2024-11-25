@@ -43,6 +43,7 @@ if (enterProjectTitleInputEdit.value === originalProjectName) {
         
         delete allProjects[originalProjectName];
 
+        //Change tasks tied to previous project name to new project name 
         for (const [key, value] of Object.entries(allTasks)) {
             if (value.getProject() === originalProjectName) {
                 value.setProject(newProjectName);

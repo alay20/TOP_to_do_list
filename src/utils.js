@@ -62,7 +62,7 @@ export const addProjectsDiv = document.createElement('div');
 
 
     export const addProjectBtnEdit = document.createElement('button');
-    addProjectBtnEdit.textContent = 'Add';
+    addProjectBtnEdit.textContent = 'Edit';
     addProjectBtnEdit.classList.add('projects-buttons', 'addbtn-edit-mode' )
 
     export const cancelAddProjectBtnEdit = document.createElement('button');

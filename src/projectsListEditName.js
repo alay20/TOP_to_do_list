@@ -10,8 +10,6 @@ if (e.target && e.target.matches('.popup-menu-edit')) {
   projectIcon.classList.add('icons');
   projectIcon.classList.add('add-project-icon-edit');
 
-
-  
   // Append elements from utils
   editProjectCont.append(projectIcon, enterProjectTitleLabelEdit, enterProjectTitleInputEdit, addProjectBtnEdit, cancelAddProjectBtnEdit);
   
