@@ -1,13 +1,10 @@
 import folderCogIcon from './icons/folder-cog.svg';
 import menuDots from './icons/dots-vertical.svg';
-import { projectsList } from "./utils"
 import { allProjects } from './data';
 
 export const editProjectNameCancelBtn = () => {
     const editProjectCont = document.querySelector('.edit-project-form-cont');
     const currentProjectName = editProjectCont.dataset.projectTitle;
-
-    editProjectCont.remove();
 
     const newProjectLi = document.createElement('li');
     newProjectLi.classList.add('new-project-li');
@@ -29,5 +26,5 @@ export const editProjectNameCancelBtn = () => {
     newProjectLi.append(projectIcon, newProjectNameText, projectMenuIcon);
     
     //append icon and new project name to project list
-    projectsList.appendChild(newProjectLi);   
+    editProjectCont.replaceWith(newProjectLi);   
 }

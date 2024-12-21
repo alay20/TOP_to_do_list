@@ -22,7 +22,6 @@ export const editProjectNameAddBtn = () => {
     newProjectNameText.classList.add('list-project-txt');
 
 if (enterProjectTitleInputEdit.value === originalProjectName) {
-    editProjectCont.remove();
 
     newProjectNameText.textContent = allProjects[originalProjectName].getProjectName();
 
@@ -56,7 +55,6 @@ if (enterProjectTitleInputEdit.value === originalProjectName) {
         
         newProjectNameText.textContent = newProjectName;
 
-        editProjectCont.remove();
         newProjectLi.append(projectIcon, newProjectNameText, projectMenuIcon);
 
         //Change project title on display in right container if project is on display
@@ -68,7 +66,7 @@ if (enterProjectTitleInputEdit.value === originalProjectName) {
         }
     }
     
-    //append icon and new project name to project list
-    projectsList.appendChild(newProjectLi);   
+    //replace edit project name container with new project name
+    editProjectCont.replaceWith(newProjectLi);   
 
 };

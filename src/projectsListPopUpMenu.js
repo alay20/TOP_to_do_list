@@ -28,11 +28,13 @@ export const displayProjPopUpMenu = (e) => {
             liProjectClicked.append(popUpMenuCont);
         } else {
             const existingPopup = document.querySelector('.project-popup-menu');
+            const existingPopupLi = existingPopup.closest('li');
+            if (liProjectClicked.dataset.projectTitle !== existingPopupLi.dataset.projectTitle){
+                popUpMenuCont.append(popUpMenuUl);
+                popUpMenuUl.append(popUpMenuEdit, popUpMenuDelete);
+                liProjectClicked.append(popUpMenuCont);
+            }
             existingPopup.remove();
-            popUpMenuCont.append(popUpMenuUl);
-            popUpMenuUl.append(popUpMenuEdit, popUpMenuDelete);
-            liProjectClicked.append(popUpMenuCont);
         }
     };
-};
-};
+}};
