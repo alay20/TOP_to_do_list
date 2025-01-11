@@ -155,7 +155,7 @@ ul .list-project-txt {
     margin-right: 25px;
     display: grid;
     grid-template-columns: 0.3fr 1fr 1fr 1fr;
-    grid-template-areas: 
+    grid-template-areas:
         "icon input input input"
         ". addbtn cancelbtn .";
 }
@@ -187,7 +187,7 @@ ul .list-project-txt {
     margin-right: 25px;
     display: grid;
     grid-template-columns: 0.3fr 1fr 1fr 1fr;
-    grid-template-areas: 
+    grid-template-areas:
         "iconedit inputedit inputedit inputedit"
         ". addbtnedit cancelbtnedit .";
 }
@@ -209,14 +209,13 @@ ul .list-project-txt {
 }
 
 .new-project-li {
-    position: relative; 
+    position: relative;
 }
 
-/* Projects list popup menu */
-.project-popup-menu {
+/* Projects and task list popup menu */
+.project-popup-menu,
+.task-popup-menu {
     position: absolute;
-    top: -62px;
-    right: -35px;
     background-color: rgb(255, 255, 255);
     border: 1px solid #ddd;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -225,8 +224,19 @@ ul .list-project-txt {
     max-width: 60px;
 }
 
+.project-popup-menu {
+    top: -62px;
+    right: -35px;
+}
+
+.task-popup-menu {
+    top: -40px;
+    right: -32px;
+}
+
 .popup-menu-edit,
 .popup-menu-delete {
+    cursor: pointer;
     margin: 0px 8px 8px;
     pointer-events: all;
 }
@@ -286,7 +296,7 @@ ul .list-project-txt {
 }
 
 .form-add-task-btn {
-    grid-area: add; 
+    grid-area: add;
 }
 
 .form-cancel-add-task-btn {
@@ -306,26 +316,24 @@ ul .list-project-txt {
     margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: 
-    "task task task task"
-    "notes notes notes notes"
-    "date date date date"
-    ". add cancel .";
-}
-
-.task-list {
-
+    grid-template-areas:
+        "task task task task"
+        "notes notes notes notes"
+        "date date date date"
+        ". add cancel .";
 }
 
 /* li for each new task */
 .new-task-li {
     display: grid;
-    grid-template-columns: 0.25fr 4fr 0.5fr 0.25fr 0.25fr;
+    grid-template-columns: 35px 4fr 100px 35px 35px;
     grid-template-areas:
         "checkbox title due star dots"
         ". notes due star dots";
     border-bottom: 1px solid rgb(0, 0, 0);
     pointer-events: all;
+    width: 99%;
+    position: relative;
 }
 
 /* Individual elements in each li of task */

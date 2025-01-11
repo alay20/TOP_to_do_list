@@ -143,7 +143,11 @@ export const setLastClickedProject = (projectName) => {
         cancelAddTaskBtn.classList.add('form-task-btns')
         
         //Append elements to container to add task
-        addTaskInputCont.append(enterTaskNameLabel, enterTaskNameInput, enterTaskNotesLabel, enterTaskNotesInput, enterTaskDateLabel, enterTaskDateInput, addTaskBtn, cancelAddTaskBtn);
+        addTaskInputCont.append(enterTaskNameLabel, enterTaskNameInput, enterTaskNotesLabel, enterTaskNotesInput, 
+                                enterTaskDateLabel, enterTaskDateInput, addTaskBtn, cancelAddTaskBtn);
+
+    //Edit task elements
+        export const cancelEditTaskBtn = cancelAddTaskBtn;
 
     //Elements for list of tasks added
 

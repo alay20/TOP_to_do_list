@@ -44,8 +44,8 @@ export const createFilteredTasks = (e) => {
                         taskNotes.classList.add('task-notes');
                 }
                 
-                taskText.textContent = key;
-                console.log("Task Title:", method.getTaskTitle().split('_')[0]);
+                taskText.textContent = method.getTaskTitleAsEntered();
+                // console.log("Task Title:", method.getTaskTitle().split('_')[0]);
 
                 taskNotes.textContent = method.getTaskNotes();
                 

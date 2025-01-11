@@ -2,7 +2,8 @@ import './style.css';
 
 import { menuBtn, addProjectsDiv, projectsList, enterProjectTitleInput, addProjectBtn, cancelAddProjectBtn, openAddTaskBtnCont, 
         cancelAddTaskBtn, addTaskBtn, addTaskInputCont, taskList, addProjectBtnEdit, cancelAddProjectBtnEdit, 
-        enterProjectTitleInputEdit} from './utils';
+        enterProjectTitleInputEdit,
+        cancelEditTaskBtn} from './utils';
 
 import { createHeader } from './header';
 import { createTaskFilter } from './taskFilter';
@@ -18,8 +19,7 @@ import { createClickedProjectTitle } from './displayClickedProjectTitle';
 import { displayAddTaskElements } from './projectPageDisplayAddTask';
 import { displayAddTaskForm } from './displayAddTaskForm';
 import { cancelAddTask } from './cancelAddTask';
-import { addTaskToObj } from './addTaskAddBtn';
-import { addTaskToList } from './addTaskAddBtnDom';
+import { addTask } from './addTaskAddBtn';
 import { createFilteredTasks } from './displayClickedProjectTasks';
 import { toggleCheckBox } from './toggleCheckbox';
 import { toggleImportant } from './toggleImportant';
@@ -29,6 +29,9 @@ import { editProjectName } from './projectsListEditName';
 import { editProjectNameAddBtn } from './editProjectNameAddBtn';
 import { editProjectNameCancelBtn } from './editProjectNameCancelBtn';
 import { deleteProject } from './projectsListDelete';
+import { displayTaskPopUpMenu } from './taskListPopUpMenu';
+import { displayEditTaskFrom } from './displayEditTaskForm';
+import { cancelEditTask } from './editTaskCancelBtn';
 
 createHeader();
 createTaskFilter();
@@ -65,10 +68,14 @@ document.addEventListener('click', removeProjPopupMenu);
 //Task Form
 openAddTaskBtnCont.addEventListener('click', displayAddTaskForm);
 cancelAddTaskBtn.addEventListener('click', cancelAddTask);
-addTaskBtn.addEventListener('click', addTaskToObj);
-addTaskBtn.addEventListener('click', addTaskToList);
+addTaskBtn.addEventListener('click', addTask);
 addTaskInputCont.addEventListener('keypress', (e) => keyPressEnterEventListener(e, addTaskBtn));
+cancelEditTaskBtn.addEventListener('click', cancelEditTask);
 
 //Task List elements
 taskList.addEventListener('click', toggleCheckBox);
 taskList.addEventListener('click', toggleImportant);
+
+//Edit task list
+taskList.addEventListener('click', displayTaskPopUpMenu);
+taskList.addEventListener('click', displayEditTaskFrom);
