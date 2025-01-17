@@ -133,30 +133,62 @@ export const setLastClickedProject = (projectName) => {
         //Task Add Button
         export const addTaskBtn = document.createElement('button');
         addTaskBtn.textContent = 'Add';
-        addTaskBtn.classList.add('form-add-task-btn');
-        addTaskBtn.classList.add('form-task-btns');
+        addTaskBtn.classList.add('form-add-task-btn', 'form-task-btns');
         
         //Task Cancel Button
         export const cancelAddTaskBtn = document.createElement('button');
         cancelAddTaskBtn.textContent = 'Cancel';
-        cancelAddTaskBtn.classList.add('form-cancel-add-task-btn');
-        cancelAddTaskBtn.classList.add('form-task-btns')
+        cancelAddTaskBtn.classList.add('form-cancel-add-task-btn', 'form-task-btns')
         
         //Append elements to container to add task
         addTaskInputCont.append(enterTaskNameLabel, enterTaskNameInput, enterTaskNotesLabel, enterTaskNotesInput, 
                                 enterTaskDateLabel, enterTaskDateInput, addTaskBtn, cancelAddTaskBtn);
 
     //Edit task elements
-        export const cancelEditTaskBtn = cancelAddTaskBtn;
+        export const editTaskInputCont = document.createElement('div');
+        editTaskInputCont.classList.add('add-task-form-cont', 'edit-task');
+        
+        export const editTaskNameLabel = document.createElement('label');
+        editTaskNameLabel.setAttribute('for', 'taskName');
+        editTaskNameLabel.classList.add('enter-task-label', 'edit-task');
+
+        export const editTaskNameInput = document.createElement('input');
+        editTaskNameInput.setAttribute('type', 'text');
+        editTaskNameInput.setAttribute('id', 'taskName');
+        editTaskNameInput.setAttribute('placeholder', 'New Task')
+        editTaskNameInput.classList.add('enter-task-input', 'edit-task');
+
+        export const editTaskNotesLabel = document.createElement('label');
+        editTaskNotesLabel.setAttribute('for', 'taskNotes');
+        editTaskNotesLabel.classList.add('enter-notes-label');
+
+        export const editTaskNotesInput = document.createElement('textarea');
+        editTaskNotesInput.setAttribute('id', 'taskNotes');
+        editTaskNotesInput.setAttribute('placeholder', 'Task Notes')
+        editTaskNotesInput.classList.add('enter-notes-input', 'edit-task');
+
+        export const editTaskDateLabel = document.createElement('label');
+        editTaskDateLabel.setAttribute('for', 'taskNotes');
+        editTaskDateLabel.classList.add('enter-notes-label', 'edit-task');
+
+        export const editTaskDateInput = document.createElement('input');
+        editTaskDateInput.setAttribute('type', 'date');
+        editTaskDateInput.setAttribute('id', 'taskDate');
+        editTaskDateInput.classList.add('enter-date-input', 'edit-task');
+
+        export const addEditTaskBtn = document.createElement('button');
+        addEditTaskBtn.textContent = 'Add';
+        addEditTaskBtn.classList.add('form-add-task-btn', 'form-task-btns', 'edit-task');
+
+        export const cancelEditTaskBtn = document.createElement('button');
+        cancelEditTaskBtn.textContent = 'Cancel';
+        cancelEditTaskBtn.classList.add('form-cancel-add-task-btn', 'form-task-btns', 'edit-task');
+
+        editTaskInputCont.append(editTaskNameLabel, editTaskNameInput, editTaskNotesLabel, editTaskNotesInput,
+                                editTaskDateLabel, editTaskDateInput, addEditTaskBtn, cancelEditTaskBtn); 
 
     //Elements for list of tasks added
 
         //Task list
         export const taskList = document.createElement('ul');
         taskList.classList.add('task-list');
-
-
-        
-
-
-        

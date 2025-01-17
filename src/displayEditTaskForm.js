@@ -1,5 +1,6 @@
 import { allTasks } from "./data";
-import { addTaskInputCont, cancelAddTaskBtn, cancelEditTaskBtn, enterTaskDateInput, enterTaskNameInput, enterTaskNotesInput } from "./utils";
+import { editTaskDateInput, editTaskInputCont, editTaskNameInput, editTaskNotesInput } from "./utils";
+
 
 export const displayEditTaskFrom = (e) => {
     if (e.target.matches('.popup-menu-edit.task')) {
@@ -10,16 +11,13 @@ export const displayEditTaskFrom = (e) => {
         var taskKey = liTaskClicked.dataset.taskTitle;
     }
     
-    enterTaskNameInput.value = allTasks[taskKey].getTaskTitleAsEntered();
-    enterTaskNotesInput.value = allTasks[taskKey].getTaskNotes();
-    enterTaskDateInput.value = allTasks[taskKey].getTaskDueDate();
+    editTaskNameInput.value = allTasks[taskKey].getTaskTitleAsEntered();
+    editTaskNotesInput.value = allTasks[taskKey].getTaskNotes();
+    editTaskDateInput.value = allTasks[taskKey].getTaskDueDate();
     
-    liTaskClicked.replaceWith(addTaskInputCont);
-    
-    cancelEditTaskBtn.classList.add('edit-task');
-    cancelAddTaskBtn.replaceWith(cancelEditTaskBtn);
+    liTaskClicked.replaceWith(editTaskInputCont);
 
-    addTaskInputCont.dataset.taskTitle = allTasks[taskKey].getTaskTitleUnique();
+    editTaskInputCont.dataset.taskTitle = allTasks[taskKey].getTaskTitleUnique();
 
     };
 };

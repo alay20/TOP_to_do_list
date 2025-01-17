@@ -32,6 +32,7 @@ import { deleteProject } from './projectsListDelete';
 import { displayTaskPopUpMenu } from './taskListPopUpMenu';
 import { displayEditTaskFrom } from './displayEditTaskForm';
 import { cancelEditTask } from './editTaskCancelBtn';
+import { deleteTask } from './taskListDelete';
 
 createHeader();
 createTaskFilter();
@@ -79,3 +80,4 @@ taskList.addEventListener('click', toggleImportant);
 //Edit task list
 taskList.addEventListener('click', displayTaskPopUpMenu);
 taskList.addEventListener('click', displayEditTaskFrom);
+taskList.addEventListener('click', deleteTask);

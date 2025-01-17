@@ -77,6 +77,4 @@ export const cancelEditTask = (e) => {
 
     editedTaskLi.append(checkboxToDisplay, taskText, taskNotes, taskDueDate, starToDisplay, taskMenuIcon);
     taskEditCont.replaceWith(editedTaskLi);
-    taskList.appendChild(editedTaskLi);
-    
 }
