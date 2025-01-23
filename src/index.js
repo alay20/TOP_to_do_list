@@ -3,7 +3,8 @@ import './style.css';
 import { menuBtn, addProjectsDiv, projectsList, enterProjectTitleInput, addProjectBtn, cancelAddProjectBtn, openAddTaskBtnCont, 
         cancelAddTaskBtn, addTaskBtn, addTaskInputCont, taskList, addProjectBtnEdit, cancelAddProjectBtnEdit, 
         enterProjectTitleInputEdit,
-        cancelEditTaskBtn} from './utils';
+        cancelEditTaskBtn,
+        errorCloseIcon} from './utils';
 
 import { createHeader } from './header';
 import { createTaskFilter } from './taskFilter';
@@ -33,6 +34,7 @@ import { displayTaskPopUpMenu } from './taskListPopUpMenu';
 import { displayEditTaskFrom } from './displayEditTaskForm';
 import { cancelEditTask } from './editTaskCancelBtn';
 import { deleteTask } from './taskListDelete';
+import { closeTaskErrorPoup } from './closeTaskErrorPopup';
 
 createHeader();
 createTaskFilter();
@@ -81,3 +83,4 @@ taskList.addEventListener('click', toggleImportant);
 taskList.addEventListener('click', displayTaskPopUpMenu);
 taskList.addEventListener('click', displayEditTaskFrom);
 taskList.addEventListener('click', deleteTask);
+errorCloseIcon.addEventListener('click', closeTaskErrorPoup);

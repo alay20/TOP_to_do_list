@@ -6,7 +6,6 @@ import star from './icons/star.svg';
 import menu from './icons/dots-vertical.svg';
 import { format, parseISO } from 'date-fns';
 
-//Add the new task into the allTasks obejct
 export const addTask = () => {
     
     //Add task to allTasks object

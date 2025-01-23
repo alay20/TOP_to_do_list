@@ -192,3 +192,26 @@ export const setLastClickedProject = (projectName) => {
         //Task list
         export const taskList = document.createElement('ul');
         taskList.classList.add('task-list');
+
+    
+    //Task edit error popup elements
+    export const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    
+
+    export const errorCont = document.createElement('div');
+    errorCont.classList.add('edit-task-error-cont');
+
+    export const errorHeader = document.createElement('h2');
+    errorHeader.classList.add('task-error-header');
+    errorHeader.textContent = 'Oops!'
+
+    export const errorMessage = document.createElement('div');
+    errorMessage.classList.add('task-error-message');
+    errorMessage.textContent = "";
+    const firstLine = document.createTextNode("Only one task can be edited at a time.");
+    const lineBreak = document.createElement('br');
+    const secondLine = document.createTextNode("Let's finish the one you've started first!");
+    errorMessage.append(firstLine, lineBreak, secondLine);
+
+    export const errorCloseIcon = new Image();
