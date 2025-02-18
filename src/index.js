@@ -4,7 +4,8 @@ import { menuBtn, addProjectsDiv, projectsList, enterProjectTitleInput, addProje
         cancelAddTaskBtn, addTaskBtn, addTaskInputCont, taskList, addProjectBtnEdit, cancelAddProjectBtnEdit, 
         enterProjectTitleInputEdit,
         cancelEditTaskBtn,
-        errorCloseIcon} from './utils';
+        errorCloseIcon,
+        addEditTaskBtn} from './utils';
 
 import { createHeader } from './header';
 import { createTaskFilter } from './taskFilter';
@@ -35,6 +36,7 @@ import { displayEditTaskFrom } from './displayEditTaskForm';
 import { cancelEditTask } from './editTaskCancelBtn';
 import { deleteTask } from './taskListDelete';
 import { closeTaskErrorPoup } from './closeTaskErrorPopup';
+import { addEditTask } from './editTaskAddBtn';
 
 createHeader();
 createTaskFilter();
@@ -73,6 +75,7 @@ openAddTaskBtnCont.addEventListener('click', displayAddTaskForm);
 cancelAddTaskBtn.addEventListener('click', cancelAddTask);
 addTaskBtn.addEventListener('click', addTask);
 addTaskInputCont.addEventListener('keypress', (e) => keyPressEnterEventListener(e, addTaskBtn));
+addEditTaskBtn.addEventListener('click', addEditTask);
 cancelEditTaskBtn.addEventListener('click', cancelEditTask);
 
 //Task List elements

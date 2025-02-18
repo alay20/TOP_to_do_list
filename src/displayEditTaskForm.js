@@ -33,7 +33,7 @@ export const displayEditTaskFrom = (e) => {
             
             liTaskClicked.replaceWith(editTaskInputCont);
 
-            editTaskInputCont.dataset.taskTitle = allTasks[taskKey].getTaskTitleUnique();
+            editTaskInputCont.dataset.taskTitle = allTasks[taskKey].getTaskUniqueTitle();
 
     };
 }};

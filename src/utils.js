@@ -10,6 +10,45 @@ export const rightContainer = document.querySelector('#right-container');
 //Elements in left main container
 export const mainNav = document.createElement('nav');
 
+//Task filter
+    export const tasksFilter = document.createElement('ul');
+    tasksFilter.classList.add('task-filter');
+
+    //All tasks filter elements
+    export const liAllTasks = document.createElement('li');
+    liAllTasks.classList.add('task-filter', 'all-tasks');
+
+    export const txtAllTasks = document.createElement('div');
+    txtAllTasks.textContent = 'All Tasks';
+    txtAllTasks.classList.add('filters-text')
+
+    //Today filter elements
+    export const liTodayTasks = document.createElement('li');
+    liTodayTasks.classList.add('task-filter', 'today-tasks');
+
+    export const txtTodayTasks = document.createElement('div');
+    txtTodayTasks.textContent = 'Today';
+    txtTodayTasks.classList.add('filters-text')
+
+    //Next 7 days filter elements
+    export const liNxtSevenDays = document.createElement('li');
+    liNxtSevenDays.classList.add('task-filter', 'next7days-tasks');
+    
+    export const txtNxtSeven = document.createElement('div');
+    txtNxtSeven.textContent = 'Next 7 Days';
+    txtNxtSeven.classList.add('filters-text')
+
+    //Important elements
+    export const liImportantTasks = document.createElement('li');
+    liImportantTasks.classList.add('task-filter', 'important-tasks');
+    
+    export const txtImportant = document.createElement('div');
+    txtImportant.textContent = 'Important';
+    txtImportant.classList.add('filters-text')
+
+
+
+
 export const projectsList = document.createElement('ul');
 projectsList.classList.add('projects-list');
 
@@ -177,7 +216,7 @@ export const setLastClickedProject = (projectName) => {
         editTaskDateInput.classList.add('enter-date-input', 'edit-task');
 
         export const addEditTaskBtn = document.createElement('button');
-        addEditTaskBtn.textContent = 'Add';
+        addEditTaskBtn.textContent = 'Edit';
         addEditTaskBtn.classList.add('form-add-task-btn', 'form-task-btns', 'edit-task');
 
         export const cancelEditTaskBtn = document.createElement('button');

@@ -1,7 +1,5 @@
 export const displayProjPopUpMenu = (e) => {
-    if (e.target.classList.contains('popup-menu-ul') || e.target.classList.contains('popup-menu-edit') || e.target.classList.contains('popup-menu-delete')) {
-        e.stopPropagation();  
-    } else {
+    if (e.target.matches('.icons.project-menu')) {
     const liProjectClicked = e.target.closest('li');
     console.log('Project of menu icon clicked:', liProjectClicked)
     

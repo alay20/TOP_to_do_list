@@ -16,11 +16,10 @@ export const addTask = () => {
         if (allTasks.hasOwnProperty(newTaskName)) {
             if (allTasksCounters.hasOwnProperty(newTaskName)) {
                 allTasksCounters[newTaskName]++;
-            } else {
-                allTasksCounters[newTaskName] = 1;
-            }
+            }  
             uniqueTaskName = `${newTaskName}_${allTasksCounters[newTaskName]}`;
         } else {
+            allTasksCounters[newTaskName] = 1;
             uniqueTaskName = newTaskName;
         }
         

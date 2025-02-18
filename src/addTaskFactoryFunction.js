@@ -8,7 +8,7 @@ export const createTask = (taskTitleAsEntered, taskUniqueTitle, taskNotes, taskC
     let isImportant = important;
 
     const getTaskTitleAsEntered = () => title;
-    const getTaskTitleUnique = () => uniqueTitle; 
+    const getTaskUniqueTitle = () => uniqueTitle; 
     const getTaskNotes = () => notes;
     const getTaskComplete = () => complete; 
     const getTaskDueDate = () => dueDate;
@@ -16,6 +16,7 @@ export const createTask = (taskTitleAsEntered, taskUniqueTitle, taskNotes, taskC
     const getImportant = () => isImportant;
 
     const setTaskTitle = (newTitle) => title = newTitle;
+    const setTaskUniqueTitle = (newUniqueTitle) => uniqueTitle = newUniqueTitle;
     const setTaskNotes = (newNotes) => notes = newNotes;
     const setTaskComplete = (newComplete) => complete = newComplete;
     const setTaskDueDate = (newDueDate) => dueDate = newDueDate;
@@ -23,7 +24,7 @@ export const createTask = (taskTitleAsEntered, taskUniqueTitle, taskNotes, taskC
     const setImportant = (newImportant) => isImportant = newImportant; 
 
 
-return { getTaskTitleAsEntered, getTaskTitleUnique, getTaskNotes, getTaskComplete, getTaskDueDate, getProject, getImportant, 
-        setTaskTitle, setTaskNotes, setTaskComplete, setTaskDueDate, setProject, setImportant
+return { getTaskTitleAsEntered, getTaskUniqueTitle, getTaskNotes, getTaskComplete, getTaskDueDate, getProject, getImportant, 
+        setTaskTitle, setTaskUniqueTitle,setTaskNotes, setTaskComplete, setTaskDueDate, setProject, setImportant
 };
 };
