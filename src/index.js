@@ -5,7 +5,8 @@ import { menuBtn, addProjectsDiv, projectsList, enterProjectTitleInput, addProje
         enterProjectTitleInputEdit,
         cancelEditTaskBtn,
         errorCloseIcon,
-        addEditTaskBtn} from './utils';
+        addEditTaskBtn,
+        tasksFilter} from './utils';
 
 import { createHeader } from './header';
 import { createTaskFilter } from './taskFilter';
@@ -37,6 +38,8 @@ import { cancelEditTask } from './editTaskCancelBtn';
 import { deleteTask } from './taskListDelete';
 import { closeTaskErrorPoup } from './closeTaskErrorPopup';
 import { addEditTask } from './editTaskAddBtn';
+import { displayAllTasks } from './displayAllTasks';
+import { displayTodayTasks } from './displayTodayTasks';
 
 createHeader();
 createTaskFilter();
@@ -44,6 +47,10 @@ createProjectsMenu();
 createDefaultAllTasksTitle();
 
 menuBtn.addEventListener('click', showMenu);
+
+//Filter tasks
+tasksFilter.addEventListener('click', displayAllTasks);
+tasksFilter.addEventListener('click', displayTodayTasks);
 
 //Add new project
 addProjectsDiv.addEventListener('click', openAddNewProject);
