@@ -1,3 +1,4 @@
+import { createTask } from "./addTaskFactoryFunction";
 import { allTasks } from "./data";
 import emptyBox from './icons/checkbox-blank-outline.svg';
 import checkedBox from './icons/checkbox-outline.svg';
@@ -15,8 +16,24 @@ export const toggleCheckBox = (e) => {
             
             console.log('Task to toggle complete: ', taskClicked);
 
+            //Retrieve local storage
+            let storedAllTasks = JSON.parse(localStorage.getItem('allTasks')) || {};
+            let updatedTask = storedAllTasks[taskClicked];
+            storedAllTasks[taskClicked] = createTask(
+                updatedTask.title,
+                updatedTask.uniqueTitle,
+                updatedTask.notes,
+                updatedTask.complete,
+                updatedTask.dueDate,
+                updatedTask.taskProject,
+                updatedTask.isImportant
+            );
+            updatedTask = storedAllTasks[taskClicked];
+        
+
             if (allTasks[taskClicked].getTaskComplete()) {
                 allTasks[taskClicked].setTaskComplete(false);    
+                updatedTask.setTaskComplete(false);
                 
                 const incompleteIcon = new Image();
                 incompleteIcon.src = emptyBox;
@@ -36,6 +53,7 @@ export const toggleCheckBox = (e) => {
                 liTaskClicked.prepend(incompleteIcon);    
             } else {
                 allTasks[taskClicked].setTaskComplete(true);
+                updatedTask.setTaskComplete(true);
                 
                 const completeIcon = new Image();
                 completeIcon.src = checkedBox;
@@ -54,5 +72,7 @@ export const toggleCheckBox = (e) => {
             }
 
             console.log('Task complete?', allTasks[taskClicked].getTaskComplete());
+
+            localStorage.setItem('allTasks', JSON.stringify(storedAllTasks));
     }
 }

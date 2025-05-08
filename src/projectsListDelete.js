@@ -9,6 +9,12 @@ export const deleteProject = (e) => {
         const nameProjToDelete = projToDeleteLi.dataset.projectTitle; 
         delete allProjects[nameProjToDelete];
 
+        //Remove Deleted object from localStorage and save updated object to localStorage
+        let storedProjects = JSON.parse(localStorage.getItem('allProjects')) || {};
+        delete storedProjects[nameProjToDelete];
+        localStorage.setItem('allProjects', JSON.stringify(storedProjects));
+        
+
         //Remove project name from tasks tied to project
         for (const [key, value] of Object.entries(allTasks)) {
             if (value.getProject() === nameProjToDelete) {

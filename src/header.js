@@ -1,4 +1,4 @@
-import { header, menuBtn } from './utils';
+import { header, lightDarkBtn, menuBtn } from './utils';
 import listIcon from './icons/format-list-checks.svg';
 import menuIcon from './icons/menu.svg';
 
@@ -27,7 +27,7 @@ export const createHeader = () => {
         logoIcon.src = listIcon;
 
     //Light-dark mode button
-        const lightDarkBtn = document.createElement('button');
+        // const lightDarkBtn = document.createElement('button');
         lightDarkBtn.classList.add('light-dark-btn');
         lightDarkBtn.textContent = 'Light-Dark Mode';
         

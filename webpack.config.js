@@ -20,13 +20,6 @@ module.exports = {
             //
             type: 'asset/resource',
           },
-          //new for inline svg
-          {
-            test: /\.svg$/i,
-            include: /inline-svg/,
-            use: 'svg-inline-loader'
-          },
-          //
           {
             test: /\.(woff|woff2|eot|ttf|otf)$/i,
             type: 'asset/resource',

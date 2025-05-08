@@ -1,3 +1,4 @@
+import { createTask } from "./addTaskFactoryFunction";
 import { allTasks } from "./data";
 import filledStar from './icons/important-star.svg';
 import star from './icons/star.svg';
@@ -10,8 +11,6 @@ export const toggleImportant = (e) => {
         console.log('Clicked element: ', e.target);
         console.log('Clicked task li: ', liTaskClicked);
 
-        console.log('SVG:', filledStar);
-
         if (liTaskClicked) {
             var taskClicked = liTaskClicked.dataset.taskTitle; 
         }
@@ -22,8 +21,23 @@ export const toggleImportant = (e) => {
 
         console.log('Task to toggle importance', taskClicked);
 
+        //Retrieve localStorage allTasks
+        let storedAllTasks = JSON.parse(localStorage.getItem('allTasks')) || {};
+        let updatedTask = storedAllTasks[taskClicked];
+        storedAllTasks[taskClicked] = createTask(
+            updatedTask.title,
+            updatedTask.uniqueTitle,
+            updatedTask.notes,
+            updatedTask.complete,
+            updatedTask.dueDate,
+            updatedTask.taskProject,
+            updatedTask.isImportant
+        );
+        updatedTask = storedAllTasks[taskClicked];
+
         if (allTasks[taskClicked].getImportant()) {
             allTasks[taskClicked].setImportant(false);
+            updatedTask.setImportant(false);
 
             const starOutline = new Image();
             starOutline.src = star;
@@ -34,6 +48,7 @@ export const toggleImportant = (e) => {
             
         } else {
             allTasks[taskClicked].setImportant(true);
+            updatedTask.setImportant(true);
             
             const starImportant = new Image();
             starImportant.src = filledStar;
@@ -43,5 +58,6 @@ export const toggleImportant = (e) => {
             console.log('Task Important:', allTasks[taskClicked].getImportant())
         }
 
+        localStorage.setItem('allTasks', JSON.stringify(storedAllTasks));
     }
 }

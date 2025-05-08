@@ -12,17 +12,22 @@ export const addTask = () => {
         const newTaskName = enterTaskNameInput.value.trim().toLowerCase();
         let uniqueTaskName;
 
-        //check if task name already exists
-        if (allTasks.hasOwnProperty(newTaskName)) {
-            if (allTasksCounters.hasOwnProperty(newTaskName)) {
+        let storedAllTasksCounters = JSON.parse(localStorage.getItem('allTasksCounters')) || {}; 
+
+        //check if task name already exists, update allTasksCounters object
+    
+        if (allTasksCounters.hasOwnProperty(newTaskName)) {
                 allTasksCounters[newTaskName]++;
-            }  
-            uniqueTaskName = `${newTaskName}_${allTasksCounters[newTaskName]}`;
+                storedAllTasksCounters[newTaskName]++;
+                uniqueTaskName = `${newTaskName}_${allTasksCounters[newTaskName]}`;
         } else {
-            allTasksCounters[newTaskName] = 1;
-            uniqueTaskName = newTaskName;
+                allTasksCounters[newTaskName] = 1;
+                storedAllTasksCounters[newTaskName] = 1;
+                uniqueTaskName = newTaskName;
         }
         
+        localStorage.setItem('allTasksCounters', JSON.stringify(storedAllTasksCounters));
+
         const newTaskNotes = enterTaskNotesInput.value;
 
         const newTaskDate = enterTaskDateInput.value;
@@ -30,6 +35,20 @@ export const addTask = () => {
         const newTask = createTask(enterTaskNameInput.value, uniqueTaskName, newTaskNotes, undefined, newTaskDate, lastClickedProject);
 
         allTasks[uniqueTaskName] = newTask;
+
+    //Add tasks to local storage
+    let storedAllTasks = JSON.parse(localStorage.getItem('allTasks')) || {};
+    storedAllTasks[uniqueTaskName] = {
+        title: newTask.getTaskTitleAsEntered(),
+        uniqueTitle: newTask.getTaskUniqueTitle(),
+        notes: newTask.getTaskNotes(),
+        complete: newTask.getTaskComplete(),
+        dueDate: newTask.getTaskDueDate(),
+        taskProject: newTask.getProject(),
+        isImportant: newTask.getImportant()
+    };
+    localStorage.setItem('allTasks', JSON.stringify(storedAllTasks));
+
 
     //Add task to DOM
         addTaskInputCont.remove(); 
@@ -56,7 +75,7 @@ export const addTask = () => {
 
         const taskDueDate = document.createElement('p');
         taskDueDate.classList.add('task-due-date');
-
+        
         //Determine text output for due date element
             if (enterTaskDateInput.value === "") {
                 taskDueDate.textContent = 'No Due Date'

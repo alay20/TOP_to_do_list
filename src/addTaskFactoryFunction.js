@@ -23,8 +23,18 @@ export const createTask = (taskTitleAsEntered, taskUniqueTitle, taskNotes, taskC
     const setProject = (newProject) => taskProject = newProject;
     const setImportant = (newImportant) => isImportant = newImportant; 
 
+    const toJSON = () => ({
+        title,
+        uniqueTitle,
+        notes,
+        complete,
+        dueDate,
+        taskProject,
+        isImportant
+    });
+
 
 return { getTaskTitleAsEntered, getTaskUniqueTitle, getTaskNotes, getTaskComplete, getTaskDueDate, getProject, getImportant, 
-        setTaskTitle, setTaskUniqueTitle,setTaskNotes, setTaskComplete, setTaskDueDate, setProject, setImportant
+        setTaskTitle, setTaskUniqueTitle,setTaskNotes, setTaskComplete, setTaskDueDate, setProject, setImportant, toJSON
 };
 };

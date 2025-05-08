@@ -6,46 +6,86 @@ import star from './icons/star.svg';
 import filledStar from './icons/important-star.svg';
 import menu from './icons/dots-vertical.svg';
 import { format, parseISO } from 'date-fns';
+import { createTask } from "./addTaskFactoryFunction";
 
 export const addEditTask = () => {
     //Edit selected task object inside alltask object
     const contEditTask = document.querySelector('.add-task-form-cont.edit-task');
-    const originalTaskNameUnique = contEditTask.dataset.taskTitle; 
+    const originalTaskUniqueTitle = contEditTask.dataset.taskTitle; 
+    const allTasksCountersKey = originalTaskUniqueTitle.split("_")[0]; 
     const editUniqueTitle = editTaskNameInput.value.trim().toLowerCase();
 
-    console.log('this is the property of the object of the task being edited:', originalTaskNameUnique);
+    console.log('this is the property of the object of the task being edited:', originalTaskUniqueTitle);
     console.log('new input in task title:', editTaskNameInput.value);
-      
-      if (allTasks.hasOwnProperty(editUniqueTitle)) {
-        allTasks[originalTaskNameUnique].setTaskNotes(editTaskNotesInput.value);
-        allTasks[originalTaskNameUnique].setTaskDueDate(editTaskDateInput.value);
-        console.log('task edited!');
-        } else {
-            if(allTasks[originalTaskNameUnique]) {
-                allTasks[originalTaskNameUnique].setTaskTitle(editTaskNameInput.value);
-                allTasks[originalTaskNameUnique].setTaskUniqueTitle(editUniqueTitle);
-                allTasks[originalTaskNameUnique].setTaskNotes(editTaskNotesInput.value);
-                allTasks[originalTaskNameUnique].setTaskDueDate(editTaskDateInput.value);
-            }            
-
-            allTasks[editUniqueTitle] = allTasks[originalTaskNameUnique];
-            delete allTasks[originalTaskNameUnique];
-            
-            allTasksCounters[editUniqueTitle] = 1;
-            
-            if (allTasksCounters[originalTaskNameUnique] === 1) {
-              delete allTasksCounters[originalTaskNameUnique];
-            } else {
-              allTasksCounters[originalTaskNameUnique] -= 1;
-            }
-            console.log('You changed the task title!');
-            };
     
+    //Retrieve localStorage
+    let storedAllTasksCounters = JSON.parse(localStorage.getItem('allTasksCounters'));
+    let storedAllTasks = JSON.parse(localStorage.getItem('allTasks')) || {};
+    
+    storedAllTasks[originalTaskUniqueTitle] = createTask(
+      storedAllTasks[originalTaskUniqueTitle].title,
+      storedAllTasks[originalTaskUniqueTitle].uniqueTitle,
+      storedAllTasks[originalTaskUniqueTitle].notes,
+      storedAllTasks[originalTaskUniqueTitle].complete,
+      storedAllTasks[originalTaskUniqueTitle].dueDate,
+      storedAllTasks[originalTaskUniqueTitle].taskProject,
+      storedAllTasks[originalTaskUniqueTitle].isImportant
+      );
+    
+    
+
+    if (allTasks.hasOwnProperty(editUniqueTitle)) {
+      allTasks[originalTaskUniqueTitle].setTaskNotes(editTaskNotesInput.value);
+      allTasks[originalTaskUniqueTitle].setTaskDueDate(editTaskDateInput.value);
+      storedAllTasks[originalTaskUniqueTitle].setTaskNotes(editTaskNotesInput.value);
+      storedAllTasks[originalTaskUniqueTitle].setTaskDueDate(editTaskDateInput.value);
+      
+      console.log('task edited!');
+    
+      } else {
+          if(allTasks[originalTaskUniqueTitle]) {
+              allTasks[originalTaskUniqueTitle].setTaskTitle(editTaskNameInput.value);
+              allTasks[originalTaskUniqueTitle].setTaskUniqueTitle(editUniqueTitle);
+              allTasks[originalTaskUniqueTitle].setTaskNotes(editTaskNotesInput.value);
+              allTasks[originalTaskUniqueTitle].setTaskDueDate(editTaskDateInput.value);
+              storedAllTasks[originalTaskUniqueTitle].setTaskTitle(editTaskNameInput.value);
+              storedAllTasks[originalTaskUniqueTitle].setTaskUniqueTitle(editUniqueTitle);
+              storedAllTasks[originalTaskUniqueTitle].setTaskNotes(editTaskNotesInput.value);
+              storedAllTasks[originalTaskUniqueTitle].setTaskDueDate(editTaskDateInput.value);
+          }            
+
+          
+          allTasks[editUniqueTitle] = allTasks[originalTaskUniqueTitle];
+          delete allTasks[originalTaskUniqueTitle];
+
+          
+          //update localStorage
+          storedAllTasks[editUniqueTitle] = storedAllTasks[originalTaskUniqueTitle];
+          delete storedAllTasks[originalTaskUniqueTitle];
+          
+          //update allTasksCounters and localStorage allTasksCounters
+          
+          allTasksCounters[editUniqueTitle] = 1;
+          allTasksCounters[allTasksCountersKey] -= 1;
+          storedAllTasksCounters[editUniqueTitle] = 1;
+          storedAllTasksCounters[allTasksCountersKey] -=1;
+
+          console.log('You changed the task title!');
+          };
+
+    //Save to localStorage
+    localStorage.setItem('allTasks', JSON.stringify(storedAllTasks));
+    localStorage.setItem('allTasksCounters', JSON.stringify(storedAllTasksCounters));
+    
+
+
+
     //Add edited task and details to DOM
 
     const newTaskLi = document.createElement('li');
     newTaskLi.classList.add('new-task-li');
     newTaskLi.dataset.taskTitle = editUniqueTitle;
+    
 
     const taskCheckbox = new Image();
     if (allTasks[editUniqueTitle].getTaskComplete()) {

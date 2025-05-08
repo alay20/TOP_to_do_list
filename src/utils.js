@@ -1,10 +1,14 @@
 export const body = document.body; 
 export const header = document.querySelector('#header-container');
 export const menuBtn = document.createElement('button');
+
+export const lightDarkBtn = document.createElement('button');
 export const mainContainer = document.querySelector('#main-container');
 
 export const leftContainer = document.querySelector('#left-container');
 export const rightContainer = document.querySelector('#right-container');
+
+
 
 
 //Elements in left main container
@@ -228,9 +232,9 @@ export const setLastClickedProject = (projectName) => {
 
     //Elements for list of tasks added
 
-        //Task list
-        export const taskList = document.createElement('ul');
-        taskList.classList.add('task-list');
+    //Task list
+    export const taskList = document.createElement('ul');
+    taskList.classList.add('task-list');
 
     
     //Task edit error popup elements
